@@ -130,11 +130,20 @@ class WC_WoocommerceModule_CreditCard extends WC_Payment_Gateway
             ->setBillingPostcode($this->order->get_billing_postcode())
             ->setBillingState($this->order->get_billing_state())
             ->setCompany($this->order->get_billing_company())
-            ->setEmail($this->order->get_billing_email())
+            ->setEmail($this->order->get_billing_email());
 
         /**
          * add shipping data for non-digital goods
          */
+        if ($this->order->get_shipping_country()) {
+            $customer
+                ->setShippingAddress1($this->order->get_shipping_address_1())
+                ->setShippingAddress2($this->order->get_shipping_address_2())
+                ->setShippingCity($this->order->get_shipping_city())
+                ->setShippingCompany($this->order->get_shipping_company())
+                ->setShippingPostcode($this->order->get_shipping_postcode())
+                ->setShippingState($this->order->get_shipping_state());
+        }
 
         /**
          * transaction
