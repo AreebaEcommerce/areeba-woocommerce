@@ -135,12 +135,6 @@ class WC_WoocommerceModule_CreditCard extends WC_Payment_Gateway
         /**
          * add shipping data for non-digital goods
          */
-        if ($this->order->get_shipping_country()) {
-            $customer
-                ->setShippingCompany($this->order->get_shipping_company())
-                ->setShippingPostcode($this->order->get_shipping_postcode())
-                ->setShippingState($this->order->get_shipping_state());
-        }
 
         /**
          * transaction
