@@ -123,12 +123,8 @@ class WC_WoocommerceModule_CreditCard extends WC_Payment_Gateway
          */
         $customer = new WoocommerceModule\Client\Data\Customer();
         $customer
-            ->setBillingAddress1($this->order->get_billing_address_1())
-            ->setBillingAddress2($this->order->get_billing_address_2())
-            ->setBillingCity($this->order->get_billing_city())
             ->setBillingPhone($this->order->get_billing_phone())
             ->setBillingPostcode($this->order->get_billing_postcode())
-            ->setBillingState($this->order->get_billing_state())
             ->setCompany($this->order->get_billing_company())
             ->setEmail($this->order->get_billing_email());
 
@@ -137,12 +133,8 @@ class WC_WoocommerceModule_CreditCard extends WC_Payment_Gateway
          */
         if ($this->order->get_shipping_country()) {
             $customer
-                ->setShippingAddress1($this->order->get_shipping_address_1())
-                ->setShippingAddress2($this->order->get_shipping_address_2())
-                ->setShippingCity($this->order->get_shipping_city())
                 ->setShippingCompany($this->order->get_shipping_company())
-                ->setShippingPostcode($this->order->get_shipping_postcode())
-                ->setShippingState($this->order->get_shipping_state());
+                ->setShippingPostcode($this->order->get_shipping_postcode());
         }
 
         /**
